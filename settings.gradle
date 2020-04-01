@@ -1,3 +1,4 @@
 rootProject.name='AndroidTutorial'
 include ':app'
 include ':binding2'
+include ':listview'
