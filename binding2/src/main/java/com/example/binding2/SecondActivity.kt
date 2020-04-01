@@ -24,6 +24,6 @@ class SecondActivity : AppCompatActivity() {
             mutableListOf(TemperatureData("Hamburg", "5"), TemperatureData("Berlin", "6"))
 
         mAdapter = MyAdapter(items)
-        recyclerView.adapter = mAdapter
+        recyclerView!!.adapter = mAdapter
     }
 }
