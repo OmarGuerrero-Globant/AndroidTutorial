@@ -17,6 +17,8 @@ class MainActivity : Activity(), MainActivityContract.View {
         val temperatureData = TemperatureData("Hamburg", "10")
         binding.setTemp(temperatureData)
         binding.setPresenter(mainActivityPresenter)
+        binding.temp = temperatureData
+        binding.presenter = mainActivityPresenter
     }
 
     override fun showData(temperatureData: TemperatureData?) {
