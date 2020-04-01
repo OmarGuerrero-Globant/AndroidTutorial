@@ -5,17 +5,17 @@ import androidx.databinding.Bindable
 
 
 
-class TemperatureData(private var location: String, private var celsius: String) :
+class TemperatureData(private var location: String, private var celsius: String,
+                      private var url: String) :
     BaseObservable() {
     @Bindable
-    fun getCelsius(): String {
-        return celsius
-    }
+    fun getCelsius(): String = celsius
 
     @Bindable
-    fun getLocation(): String {
-        return location
-    }
+    fun getLocation(): String = location
+
+    @Bindable
+    fun getUrl():String = url
 
     fun setLocation(location: String) {
         this.location = location
@@ -25,6 +25,11 @@ class TemperatureData(private var location: String, private var celsius: String)
     fun setCelsius(celsius: String) {
         this.celsius = celsius
         notifyPropertyChanged(BR.celsius)
+    }
+
+    fun setUrl(url: String){
+        this.url = url
+        notifyPropertyChanged(BR.url)
     }
 
 }

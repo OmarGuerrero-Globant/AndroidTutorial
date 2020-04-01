@@ -14,7 +14,7 @@ class MainActivity : Activity(), MainActivityContract.View {
             DataBindingUtil.setContentView(this, R.layout.activity_main)
         val mainActivityPresenter =
             MainActivityPresenter(this, applicationContext)
-        val temperatureData = TemperatureData("Hamburg", "10")
+        val temperatureData = TemperatureData("Hamburg", "10", "http://lorempixel.com/40/40/")
         binding.temp = temperatureData
         binding.presenter = mainActivityPresenter
     }
