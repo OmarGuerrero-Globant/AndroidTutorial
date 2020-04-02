@@ -67,6 +67,7 @@ class RssfeedActivity : AppCompatActivity(),
             args.putString(DetailFragment.EXTRA_TEXT, text)
             newFragment.arguments = args
             val transaction: FragmentTransaction = fm.beginTransaction()
+            transaction.setCustomAnimations(R.animator.slide_up, R.animator.slide_down)
             transaction.replace(R.id.fragment_container, newInstance(text))
             transaction.addToBackStack(null)
             transaction.commit()
