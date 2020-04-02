@@ -2,10 +2,17 @@ package com.example.binding2
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
+@BindingAdapter("android:src")
+fun setImageUrl(view: ImageView, url: String?) {
+    Glide.with(view.context).load(url).placeholder(R.drawable.ic_listentry).into(view)
+}
 
 class SecondActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -21,7 +28,8 @@ class SecondActivity : AppCompatActivity() {
         layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
         val items: List<TemperatureData> =
-            mutableListOf(TemperatureData("Hamburg", "5"), TemperatureData("Berlin", "6"))
+            mutableListOf(TemperatureData("Hamburg", "5", "http://lorempixel.com/40/40/"),
+                TemperatureData("Berlin", "6", "http://lorempixel.com/40/40/"))
 
         mAdapter = MyAdapter(items)
         recyclerView.adapter = mAdapter
