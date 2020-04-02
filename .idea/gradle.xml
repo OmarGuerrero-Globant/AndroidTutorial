@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/binding2" />
             <option value="$PROJECT_DIR$/listview" />
+            <option value="$PROJECT_DIR$/rssreader" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
