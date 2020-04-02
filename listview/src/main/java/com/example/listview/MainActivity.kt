@@ -1,6 +1,5 @@
 package com.example.listview
 
-import android.R
 import android.app.ListActivity
 import android.os.Bundle
 import android.view.View
@@ -19,7 +18,7 @@ class MainActivity : ListActivity() {
         )
         val adapter = ArrayAdapter(
             this,
-            R.layout.simple_list_item_1, values
+            R.layout.row_layout, R.id.label, values
         )
         listAdapter = adapter
     }
