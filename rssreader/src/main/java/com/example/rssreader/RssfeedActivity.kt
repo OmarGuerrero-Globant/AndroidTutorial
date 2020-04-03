@@ -33,10 +33,7 @@ class RssfeedActivity : AppCompatActivity(),
             val fragment : DetailFragment = fm.findFragmentById(R.id.detailFragment) as DetailFragment
             fragment.setText(text)
         }else{
-            val newFragment : DetailFragment = DetailFragment()
-            val args : Bundle = Bundle()
-            args.putString(DetailFragment.EXTRA_TEXT, text)
-            newFragment.arguments = args
+            val newFragment : DetailFragment = DetailFragment(text)
             val transaction: FragmentTransaction = fm.beginTransaction()
             transaction.replace(R.id.fragment_container, newFragment)
             transaction.addToBackStack(null)
