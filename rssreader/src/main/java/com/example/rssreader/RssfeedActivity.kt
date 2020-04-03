@@ -10,6 +10,18 @@ import androidx.fragment.app.FragmentTransaction
 class RssfeedActivity : AppCompatActivity(),
     MyListFragment.OnItemSelectedListener {
 
+    companion object{
+        @JvmOverloads
+        @JvmStatic
+        fun newInstance(text: String? = null):DetailFragment{
+            return DetailFragment().apply {
+                arguments = Bundle().apply {
+                    putString(DetailFragment.EXTRA_TEXT, text)
+                }
+            }
+        }
+    }
+
     private val fm: FragmentManager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,12 +45,8 @@ class RssfeedActivity : AppCompatActivity(),
             val fragment : DetailFragment = fm.findFragmentById(R.id.detailFragment) as DetailFragment
             fragment.setText(text)
         }else{
-            val newFragment : DetailFragment = DetailFragment()
-            val args : Bundle = Bundle()
-            args.putString(DetailFragment.EXTRA_TEXT, text)
-            newFragment.arguments = args
             val transaction: FragmentTransaction = fm.beginTransaction()
-            transaction.replace(R.id.fragment_container, newFragment)
+            transaction.replace(R.id.fragment_container, newInstance(text))
             transaction.addToBackStack(null)
             transaction.commit()
         }
