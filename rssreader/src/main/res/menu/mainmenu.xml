@@ -6,11 +6,15 @@
         android:orderInCategory="100"
         android:icon="@drawable/ic_action_refresh"
         android:title="@string/refresh"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_settings"
         android:title="@string/settings"
-        app:showAsAction="never">
-    </item>
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_network"
+        android:title="Network"
+        app:showAsAction="ifRoom" />
 
 </menu>

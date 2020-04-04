@@ -46,20 +46,22 @@ class RssfeedActivity : AppCompatActivity(),
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_refresh -> {
-                val fragment = (supportFragmentManager
-                    .findFragmentById(R.id.listFragment) as MyListFragment).apply {
-                    updateListContent()
-                }
+                Toast.makeText(this, "Action Refresh selected", Toast.LENGTH_SHORT).show()
+                return true
             }
             R.id.action_settings -> {
-                val intent = Intent(this, MyPreferences::class.java).apply {
-                    startActivity(this)
-                }
-                Toast.makeText(this, "Action Settings selected", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(this, "Action Settings selected", Toast.LENGTH_SHORT).show()
+                return true
+            }
+            R.id.action_network -> {
+                val wirelessIntent = Intent("android.settings.WIRELESS_SETTINGS")
+                startActivity(wirelessIntent)
+                return true
+            }
+            else -> {
             }
         }
-        return true
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onRssItemSelected(link: String?) {
