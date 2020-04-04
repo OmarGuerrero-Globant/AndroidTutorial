@@ -2,4 +2,7 @@
     <string name="app_name">RSS Reader</string>
     <string name="press_to_update">Press to update</string>
     <string name="default_text">Default Text</string>
+    <string name="share_it">Share it</string>
+    <string name="settings">Settings</string>
+    <string name="refresh">Refresh</string>
 </resources>

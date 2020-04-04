@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_rsslist_overview.view.*
 
@@ -36,13 +35,22 @@ class MyListFragment : Fragment() {
         return view
     }
 
-    private fun updateDetail(uri: String) {
+    fun updateDetail(uri: String) {
         val newTime =
             System.currentTimeMillis().toString()
         listener.onRssItemSelected(newTime)
     }
 
+    fun goToActionMode(item: RssItem){
+        listener.goToActionMode(item)
+    }
+
+    fun updateListContent() {
+
+    }
+
     interface OnItemSelectedListener {
         fun onRssItemSelected(text: String?)
+        fun goToActionMode(item : RssItem)
     }
 }
