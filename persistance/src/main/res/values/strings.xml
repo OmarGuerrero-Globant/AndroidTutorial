@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Persistance</string>
+    <string name="skill_points">\" Skill points \"</string>
+    <string name="trophy">\" Trophys \"</string>
+    <string name="learn3">Learned to use 3</string>
+    <string name="update_tropys">Update tropys</string>
+    <string name="udpdate_skillpoints">udpdate skillpoints</string>
+    <string name="more">More stuff</string>
+</resources>
