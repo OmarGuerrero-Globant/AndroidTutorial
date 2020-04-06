@@ -2,10 +2,12 @@ package com.example.rssreader
 
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.*
 import android.widget.Toast
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 
 
@@ -46,11 +48,22 @@ class RssfeedActivity : AppCompatActivity(),
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_refresh -> {
-                Toast.makeText(this, "Action Refresh selected", Toast.LENGTH_SHORT).show()
+                val settings = PreferenceManager.getDefaultSharedPreferences(this)
+                val url = settings.getString("url", "https://www.vogella.com/article.rss")
                 return true
             }
             R.id.action_settings -> {
-                Toast.makeText(this, "Action Settings selected", Toast.LENGTH_SHORT).show()
+                if(resources.getBoolean(R.bool.twoPaneMode)){
+                    with(fm) {
+                        beginTransaction().replace(R.id.detailFragment,
+                                    SettingsFragment() as Fragment).commit()
+                    }
+                }else {
+                    with(fm) {
+                        beginTransaction().addToBackStack(null).replace(
+                                        R.id.fragment_container, SettingsFragment() as Fragment).commit()
+                    }
+                }
                 return true
             }
             R.id.action_network -> {
