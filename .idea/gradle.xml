@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/persistance" />
             <option value="$PROJECT_DIR$/retrofitgerrit" />
             <option value="$PROJECT_DIR$/rssreader" />
+            <option value="$PROJECT_DIR$/rxjava" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
