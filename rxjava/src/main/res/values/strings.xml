@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Rxjava</string>
+    <string name="server">Server</string>
+    <string name="toast">Toast</string>
+</resources>
