@@ -16,9 +16,10 @@
             <option value="$PROJECT_DIR$/listview" />
             <option value="$PROJECT_DIR$/persistance" />
             <option value="$PROJECT_DIR$/retrofitgerrit" />
+            <option value="$PROJECT_DIR$/retrofittwitter" />
             <option value="$PROJECT_DIR$/rssreader" />
-            <option value="$PROJECT_DIR$/stackoverflow" />
             <option value="$PROJECT_DIR$/rxjava" />
+            <option value="$PROJECT_DIR$/stackoverflow" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
