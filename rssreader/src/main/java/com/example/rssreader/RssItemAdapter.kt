@@ -6,7 +6,9 @@ import android.view.View.OnClickListener
 import android.view.View.OnLongClickListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.row_layout.view.*
+import java.util.*
 
 class RssItemAdapter(private val rssItems : List<RssItem>, private val myListFragment : MyListFragment) : RecyclerView.Adapter<RssItemAdapter.ViewHolder>(){
 
@@ -24,6 +26,12 @@ class RssItemAdapter(private val rssItems : List<RssItem>, private val myListFra
             myListFragment.goToActionMode(rssItem)
             true
         })
+        val r : Random = Random()
+        val i : Int = r.nextInt(10)
+
+        Glide.with(myListFragment).load("http://lorempixel.com/400/200/sports/$i/").
+                into(holder.itemView.icon)
+
     }
 
     override fun getItemCount() : Int = rssItems.size
