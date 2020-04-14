@@ -5,9 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rxjava.R
 import com.example.rxjava.SimpleStringAdapter
-import com.example.rxjava.main.MainPresenter
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_colors.*
 
 

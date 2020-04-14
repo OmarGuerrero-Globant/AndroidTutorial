@@ -19,8 +19,8 @@ class MainActivity : AppCompatActivity() , MainPresenter.View {
         presenter.onOptionsItemSelected(view.id)
     }
 
-    override fun onSelectedActivity(activity: String) {
-        startActivity(Intent(this, activity::class.java))
+    override fun onSelectedActivity(idActivity: Class<out AppCompatActivity>) {
+        startActivity(Intent(this, idActivity))
     }
 
     override fun onDestroy() {
