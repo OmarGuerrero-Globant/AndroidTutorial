@@ -1,10 +1,9 @@
-package com.example.rxjava
+package com.example.rxjava.books
 
-import android.content.Context
 import android.os.SystemClock
 
 
-class RestClient(context : Context) {
+class DataSource {
 
     fun getFavoriteBooks() : List<String>{
             SystemClock.sleep(8000)

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 class SimpleStringAdapter(private val mContext: Context) :
     RecyclerView.Adapter<SimpleStringAdapter.ViewHolder>() {
     private val mStrings: MutableList<String> = ArrayList()
+
     fun setStrings(newStrings: List<String>) {
         mStrings.clear()
         mStrings.addAll(newStrings)
