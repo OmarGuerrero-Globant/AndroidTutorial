@@ -1,9 +1,12 @@
-package com.example.rxjava
+package com.example.rxjava.books
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.rxjava.R
+import com.example.rxjava.RestClient
+import com.example.rxjava.SimpleStringAdapter
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.Disposable
