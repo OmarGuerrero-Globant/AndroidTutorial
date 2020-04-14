@@ -8,8 +8,9 @@ import com.example.rxjava.SimpleStringAdapter
 import kotlinx.android.synthetic.main.activity_colors.*
 
 
-class ColorsActivity : AppCompatActivity() , ColorsPresenter.View {
-    private val presenter =  ColorsPresenter()
+class ColorsActivity : AppCompatActivity() , ColorsContract.View {
+    private val dataSource  = DataSource()
+    private val presenter =  ColorsPresenter(dataSource)
     private lateinit var simpleStringAdapter: SimpleStringAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {

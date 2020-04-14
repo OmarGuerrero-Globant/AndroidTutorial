@@ -1,34 +1,27 @@
 package com.example.rxjava.rxjavasimple
 
 import com.example.rxjava.R
-import com.example.rxjava.rxjavasimple.RxJavaSimpleModel.Companion.serverDownloadObservable
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.observers.DisposableObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class RxJavaSimplePresenter {
+class RxJavaSimplePresenter(private val dataSource: RxJavaSimpleDataSource) : RxJavaSimpleContract.Presenter {
     var disposable: CompositeDisposable = CompositeDisposable()
     var value = 0
 
-    interface View {
-        fun enable(boolean: Boolean)
-        fun updateTheUserInterface(item : Int)
-        fun displayMessage(message : String)
-    }
+    private var view: RxJavaSimpleContract.View? = null
 
-    private var view: View? = null
-
-    fun onCreate(view : View){
+    override fun onCreate(view : RxJavaSimpleContract.View){
         this.view = view
     }
 
-    fun onDestroy(){
+    override fun onDestroy(){
         this.view = null
     }
 
-    fun onOptionSelected(viewId : Int){
+    override fun onOptionSelected(viewId : Int){
         when(viewId){
             R.id.button -> observeServerDownload()
             R.id.toastbutton -> view?.displayMessage("Still active ${value++}")
@@ -38,7 +31,7 @@ class RxJavaSimplePresenter {
     private fun observeServerDownload(){
         view?.enable(false)
         val subscribe: Disposable =
-            serverDownloadObservable.observeOn(AndroidSchedulers.mainThread())
+            dataSource.getData().observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io()).subscribeWith(object : DisposableObserver<Int>(){
                     override fun onComplete() {
                         view?.displayMessage("Has completed")
@@ -57,7 +50,7 @@ class RxJavaSimplePresenter {
         disposable.add(subscribe)
     }
 
-    fun cancelDisposable(){
+    override fun cancelDisposable(){
         if (disposable != null && !disposable.isDisposed) {
             disposable.dispose()
         }

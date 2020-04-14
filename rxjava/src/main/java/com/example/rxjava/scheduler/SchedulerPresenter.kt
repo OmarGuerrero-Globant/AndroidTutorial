@@ -1,8 +1,6 @@
 package com.example.rxjava.scheduler
 
-import android.view.View
 import com.example.rxjava.R
-import com.example.rxjava.scheduler.SchedulerModel.Companion.doSomethingLong
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.Disposable
@@ -10,27 +8,20 @@ import io.reactivex.rxjava3.observers.DisposableObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.Callable
 
-class SchedulerPresenter {
-
-    interface View {
-        fun updateProgressBar(visibility : Int)
-        fun enableButton(isEnabled: Boolean)
-        fun setMessage(message: String)
-    }
-
+class SchedulerPresenter(private val dataSource: DataSource): SchedulerContract.Presenter {
     private val subscription: Disposable? = null
-    private var view: View? = null
-    private var callable: Callable<String> = Callable<String> { doSomethingLong() }
+    private var view: SchedulerContract.View? = null
+    private var callable: Callable<String> = Callable<String> { dataSource.getData()}
 
-    fun onCreate(view : View){
+    override fun onCreate(view : SchedulerContract.View){
         this.view = view
     }
 
-    fun onDestroy(){
+    override fun onDestroy(){
         this.view = null
     }
 
-    fun onButtonSelected(viewId : Int){
+    override fun onButtonSelected(viewId : Int){
         when(viewId){
             R.id.scheduleLongRunningOperation -> Observable.fromCallable(callable).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).doOnSubscribe {
@@ -63,7 +54,7 @@ class SchedulerPresenter {
         }
     }
 
-    fun cancelDisposable(){
+    override fun cancelDisposable(){
         if (subscription != null && !subscription.isDisposed) {
             subscription.dispose()
         }

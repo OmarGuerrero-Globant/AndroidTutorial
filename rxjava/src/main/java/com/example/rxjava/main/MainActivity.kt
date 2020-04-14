@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rxjava.R
 
-class MainActivity : AppCompatActivity() , MainPresenter.View {
+class MainActivity : AppCompatActivity() , MainContract.View {
     private val presenter =  MainPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {

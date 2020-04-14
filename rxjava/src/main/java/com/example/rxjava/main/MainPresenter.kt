@@ -1,29 +1,24 @@
 package com.example.rxjava.main
 
-import androidx.appcompat.app.AppCompatActivity
 import com.example.rxjava.R
 import com.example.rxjava.books.BooksActivity
 import com.example.rxjava.colors.ColorsActivity
 import com.example.rxjava.rxjavasimple.RxJavaSimpleActivity
 import com.example.rxjava.scheduler.SchedulerActivity
 
-class MainPresenter {
+class MainPresenter : MainContract.Presenter {
 
-    interface View {
-        fun onSelectedActivity(idActivity : Class<out AppCompatActivity>)
-    }
+    private var view: MainContract.View? = null
 
-    private var view: View ? = null
-
-    fun onCreate(view : View){
+    override fun onCreate(view : MainContract.View){
         this.view = view
     }
 
-    fun onDestroy(){
+    override fun onDestroy(){
         this.view = null
     }
 
-    fun onOptionsItemSelected(id: Int){
+    override fun onOptionsItemSelected(id: Int){
         val idActivity = when (id) {
             R.id.first -> RxJavaSimpleActivity::class.java
             R.id.second -> ColorsActivity::class.java

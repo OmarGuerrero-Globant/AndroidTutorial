@@ -6,8 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.rxjava.R
 import kotlinx.android.synthetic.main.activity_scheduler.*
 
-class SchedulerActivity : AppCompatActivity() , SchedulerPresenter.View {
-    private val presenter = SchedulerPresenter()
+class SchedulerActivity : AppCompatActivity() , SchedulerContract.View {
+    private val dataSource = DataSource()
+    private val presenter = SchedulerPresenter(dataSource)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

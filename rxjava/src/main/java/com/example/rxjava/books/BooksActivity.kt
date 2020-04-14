@@ -5,14 +5,13 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rxjava.R
-import com.example.rxjava.RestClient
 import com.example.rxjava.SimpleStringAdapter
 import kotlinx.android.synthetic.main.activity_books.*
 
-class BooksActivity : AppCompatActivity(), BooksPresenter.View {
-    private val presenter = BooksPresenter()
+class BooksActivity : AppCompatActivity(), BooksContract.View {
     private lateinit var stringAdapter: SimpleStringAdapter
-    private lateinit var restClient: RestClient
+    private val dataSource = DataSource()
+    private val presenter = BooksPresenter(dataSource)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,9 +19,8 @@ class BooksActivity : AppCompatActivity(), BooksPresenter.View {
         books_list.layoutManager = LinearLayoutManager(this)
         stringAdapter = SimpleStringAdapter(this)
         books_list.adapter = stringAdapter
-        restClient = RestClient(this)
         presenter.onCreate(this)
-        presenter.initObservable(restClient)
+        presenter.initObservable()
     }
 
     override fun displayBooks(books: List<String>) {

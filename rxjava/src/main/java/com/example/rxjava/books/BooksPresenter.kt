@@ -1,39 +1,32 @@
 package com.example.rxjava.books
 
-import com.example.rxjava.RestClient
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class BooksPresenter {
-
-    interface View {
-        fun displayBooks(books: List<String>)
-    }
-
-
+class BooksPresenter(private val dataSource: DataSource) : BooksContract.Presenter {
     private lateinit var bookSubscription: Disposable
-    private var view: View? = null
+    private var view: BooksContract.View? = null
 
-    fun onCreate(view : View){
+    override fun onCreate(view : BooksContract.View){
         this.view = view
     }
 
-    fun onDestroy(){
+    override fun onDestroy(){
         this.view = null
     }
 
-    fun initObservable(restClient : RestClient){
+    override fun initObservable(){
         val booksObservable: Observable<List<String>> =
-            Observable.fromCallable { restClient.getFavoriteBooks() }
+            Observable.fromCallable { dataSource.getFavoriteBooks()}
         bookSubscription =
             booksObservable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { strings -> view?.displayBooks(strings) }
     }
 
-    fun cancelDisposable(){
+    override fun cancelDisposable(){
         if (bookSubscription != null && !bookSubscription.isDisposed) {
             bookSubscription.dispose()
         }

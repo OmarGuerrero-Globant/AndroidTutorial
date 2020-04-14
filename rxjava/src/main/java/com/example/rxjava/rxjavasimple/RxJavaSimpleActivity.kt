@@ -7,8 +7,9 @@ import com.example.rxjava.R
 import com.example.rxjava.common.utils.toast
 import kotlinx.android.synthetic.main.activity_rxjavasimple.*
 
-class RxJavaSimpleActivity : AppCompatActivity() , RxJavaSimplePresenter.View{
-    private val presenter = RxJavaSimplePresenter()
+class RxJavaSimpleActivity : AppCompatActivity() , RxJavaSimpleContract.View{
+    private val dataSource = RxJavaSimpleDataSource()
+    private val presenter = RxJavaSimplePresenter(dataSource)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
