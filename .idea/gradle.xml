@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/rssreader" />
             <option value="$PROJECT_DIR$/rxjava" />
             <option value="$PROJECT_DIR$/stackoverflow" />
+            <option value="$PROJECT_DIR$/themes" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
