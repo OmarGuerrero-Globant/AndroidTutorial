@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/dragndrop" />
             <option value="$PROJECT_DIR$/drawables" />
             <option value="$PROJECT_DIR$/listview" />
+            <option value="$PROJECT_DIR$/localservice" />
             <option value="$PROJECT_DIR$/persistance" />
             <option value="$PROJECT_DIR$/retrofitgerrit" />
             <option value="$PROJECT_DIR$/retrofittwitter" />
