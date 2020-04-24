@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/listview" />
             <option value="$PROJECT_DIR$/localservice" />
             <option value="$PROJECT_DIR$/persistance" />
+            <option value="$PROJECT_DIR$/phonereceiver" />
             <option value="$PROJECT_DIR$/retrofitgerrit" />
             <option value="$PROJECT_DIR$/retrofittwitter" />
             <option value="$PROJECT_DIR$/rssreader" />
