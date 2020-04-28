@@ -15,7 +15,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/binding2" />
             <option value="$PROJECT_DIR$/compoundview" />
+            <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/dialogfragmentexample" />
+            <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/dragndrop" />
             <option value="$PROJECT_DIR$/drawables" />
             <option value="$PROJECT_DIR$/listview" />
