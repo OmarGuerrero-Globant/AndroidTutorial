@@ -8,9 +8,9 @@ import io.reactivex.schedulers.Schedulers
 abstract class SingleUseCase<INPUT , OUTPUT : Any> (private val threadExecutor: ThreadExecutor,
                                                     private val postExecutionThread: PostExecutionThread) {
 
-    abstract fun buildSingleUseCase(params : INPUT) : Single<OUTPUT>
+    abstract fun buildSingleUseCase(params : INPUT?) : Single<OUTPUT>
 
-    fun execute(params : INPUT) : Single<OUTPUT>{
+    fun execute(params : INPUT?) : Single<OUTPUT> {
         return this.buildSingleUseCase(params).subscribeOn(Schedulers.from(threadExecutor))
             .observeOn(postExecutionThread.getScheduler())
     }

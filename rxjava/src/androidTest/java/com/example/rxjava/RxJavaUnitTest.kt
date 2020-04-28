@@ -5,7 +5,7 @@ import io.reactivex.rxjava3.core.ObservableOnSubscribe
 import io.reactivex.rxjava3.observers.TestObserver
 import junit.framework.Assert.assertTrue
 import org.junit.Test
-
+import org.junit.runner.RunWith
 
 class RxJavaUnitTest {
     private lateinit var result : String

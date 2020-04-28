@@ -5,5 +5,5 @@ import io.reactivex.Single
 
 interface MoviesRepository {
     fun getMovieById(id : String) : Single<MovieDto>
-    fun getMovies() : Single<List<MovieDto>>
+    fun getMovies(page : Int) : Single<List<MovieDto>>
 }
