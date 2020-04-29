@@ -8,12 +8,12 @@ interface SimpleContract {
         fun onMovieLoaded(movieDto: MovieDto)
         fun onMovieLoadedFailed(message : String)
         fun onMoviesLoaded(list : List<MovieDto>)
-        fun onMoviesLoadedFailed() : String
+        fun onMoviesLoadedFailed(message: String)
     }
 
     interface Presenter{
         fun getMovie(id: String)
-        fun getMovieList()
+        fun getMovieList(page : Int)
         fun onDestroy()
     }
 
