@@ -1,10 +1,11 @@
 package com.example.rxjava.main
 
 import com.example.rxjava.R
-import com.example.rxjava.books.BooksActivity
-import com.example.rxjava.colors.ColorsActivity
-import com.example.rxjava.rxjavasimple.RxJavaSimpleActivity
-import com.example.rxjava.scheduler.SchedulerActivity
+import com.example.rxjava.view.BooksActivity
+import com.example.rxjava.view.ColorsActivity
+import com.example.rxjava.view.RxJavaSimpleActivity
+import com.example.rxjava.view.SchedulerActivity
+import com.example.rxjava.view.MainActivity
 
 class MainPresenter : MainContract.Presenter {
 

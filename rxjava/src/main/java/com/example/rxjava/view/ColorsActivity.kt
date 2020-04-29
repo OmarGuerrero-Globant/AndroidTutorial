@@ -1,16 +1,20 @@
-package com.example.rxjava.colors
+package com.example.rxjava.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rxjava.R
 import com.example.rxjava.SimpleStringAdapter
+import com.example.rxjava.colors.ColorsContract
+import com.example.rxjava.colors.ColorsPresenter
+import com.example.rxjava.colors.DataSource
 import kotlinx.android.synthetic.main.activity_colors.*
 
 
-class ColorsActivity : AppCompatActivity() , ColorsContract.View {
+class ColorsActivity : AppCompatActivity() ,
+    ColorsContract.View {
     private val dataSource  = DataSource()
-    private val presenter =  ColorsPresenter(dataSource)
+    private val presenter = ColorsPresenter(dataSource)
     private lateinit var simpleStringAdapter: SimpleStringAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {

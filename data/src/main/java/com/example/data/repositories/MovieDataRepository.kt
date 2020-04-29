@@ -1,10 +1,9 @@
-package repositories
+package com.example.data.repositories
 
 import com.example.data.remote.services.MoviesServices
 import com.example.domain.dto.MovieDto
 import com.example.domain.repository.MoviesRepository
 import io.reactivex.Single
-import io.reactivex.SingleSource
 
 class MovieDataRepository(private val moviesServices: MoviesServices) : MoviesRepository {
 
