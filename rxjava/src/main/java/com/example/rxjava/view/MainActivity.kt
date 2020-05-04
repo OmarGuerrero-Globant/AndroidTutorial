@@ -1,13 +1,16 @@
-package com.example.rxjava.main
+package com.example.rxjava.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rxjava.R
+import com.example.rxjava.main.MainContract
+import com.example.rxjava.main.MainPresenter
 
-class MainActivity : AppCompatActivity() , MainContract.View {
-    private val presenter =  MainPresenter()
+class MainActivity : AppCompatActivity() ,
+    MainContract.View {
+    private val presenter = MainPresenter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

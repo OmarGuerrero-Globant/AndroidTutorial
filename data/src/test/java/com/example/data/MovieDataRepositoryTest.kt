@@ -9,7 +9,7 @@ import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
-import repositories.MovieDataRepository
+import com.example.data.repositories.MovieDataRepository
 import retrofit2.Response
 import kotlin.properties.Delegates
 

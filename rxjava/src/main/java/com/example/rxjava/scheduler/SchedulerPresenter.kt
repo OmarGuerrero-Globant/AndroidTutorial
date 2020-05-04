@@ -1,11 +1,11 @@
 package com.example.rxjava.scheduler
 
 import com.example.rxjava.R
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.Disposable
-import io.reactivex.rxjava3.observers.DisposableObserver
-import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.observers.DisposableObserver
+import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.Callable
 
 class SchedulerPresenter(private val dataSource: DataSource): SchedulerContract.Presenter {
@@ -23,7 +23,8 @@ class SchedulerPresenter(private val dataSource: DataSource): SchedulerContract.
 
     override fun onButtonSelected(viewId : Int){
         when(viewId){
-            R.id.scheduleLongRunningOperation -> Observable.fromCallable(callable).subscribeOn(Schedulers.io())
+            R.id.scheduleLongRunningOperation -> Observable.fromCallable(callable).subscribeOn(
+                Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).doOnSubscribe {
                     view?.updateProgressBar(android.view.View.VISIBLE)
                     view?.enableButton(false)

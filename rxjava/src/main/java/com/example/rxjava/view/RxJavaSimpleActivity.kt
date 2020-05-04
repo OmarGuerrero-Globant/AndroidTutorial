@@ -1,15 +1,21 @@
-package com.example.rxjava.rxjavasimple
+package com.example.rxjava.view
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rxjava.R
 import com.example.rxjava.common.utils.toast
+import com.example.rxjava.rxjavasimple.RxJavaSimpleContract
+import com.example.rxjava.rxjavasimple.RxJavaSimpleDataSource
+import com.example.rxjava.rxjavasimple.RxJavaSimplePresenter
 import kotlinx.android.synthetic.main.activity_rxjavasimple.*
 
-class RxJavaSimpleActivity : AppCompatActivity() , RxJavaSimpleContract.View{
-    private val dataSource = RxJavaSimpleDataSource()
-    private val presenter = RxJavaSimplePresenter(dataSource)
+class RxJavaSimpleActivity : AppCompatActivity() ,
+    RxJavaSimpleContract.View {
+    private val dataSource =
+        RxJavaSimpleDataSource()
+    private val presenter =
+        RxJavaSimplePresenter(dataSource)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

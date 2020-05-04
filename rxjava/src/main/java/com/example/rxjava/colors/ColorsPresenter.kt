@@ -1,7 +1,7 @@
 package com.example.rxjava.colors
 
-import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.disposables.Disposable
+import io.reactivex.Observable
+import io.reactivex.disposables.Disposable
 
 class ColorsPresenter(private val dataSource: DataSource) : ColorsContract.Presenter {
     private lateinit var disposable: Disposable

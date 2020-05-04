@@ -1,4 +1,4 @@
-package com.example.rxjava.books
+package com.example.rxjava.view
 
 import android.os.Bundle
 import android.view.View
@@ -6,9 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rxjava.R
 import com.example.rxjava.SimpleStringAdapter
+import com.example.rxjava.books.BooksContract
+import com.example.rxjava.books.BooksPresenter
+import com.example.rxjava.books.DataSource
 import kotlinx.android.synthetic.main.activity_books.*
 
-class BooksActivity : AppCompatActivity(), BooksContract.View {
+class BooksActivity : AppCompatActivity(),
+    BooksContract.View {
     private lateinit var stringAdapter: SimpleStringAdapter
     private val dataSource = DataSource()
     private val presenter = BooksPresenter(dataSource)
