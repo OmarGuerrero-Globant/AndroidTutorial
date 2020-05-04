@@ -1,11 +1,11 @@
 package com.example.rxjava.rxjavasimple
 
 import com.example.rxjava.R
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.disposables.Disposable
-import io.reactivex.rxjava3.observers.DisposableObserver
-import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
+import io.reactivex.observers.DisposableObserver
+import io.reactivex.schedulers.Schedulers
 
 class RxJavaSimplePresenter(private val dataSource: RxJavaSimpleDataSource) : RxJavaSimpleContract.Presenter {
     var disposable: CompositeDisposable = CompositeDisposable()
@@ -42,7 +42,7 @@ class RxJavaSimplePresenter(private val dataSource: RxJavaSimpleDataSource) : Rx
                         view?.updateTheUserInterface(item)
                     }
 
-                    override fun onError(e: Throwable?) {
+                    override fun onError(e: Throwable) {
                         view?.displayMessage("Has ocurred an error : $e")
                         view?.enable(true)
                     }

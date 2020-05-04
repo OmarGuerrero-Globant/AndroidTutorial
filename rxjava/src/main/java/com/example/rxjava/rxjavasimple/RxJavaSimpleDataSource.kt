@@ -1,11 +1,11 @@
 package com.example.rxjava.rxjavasimple
 
 import android.os.SystemClock
-import io.reactivex.rxjava3.core.Observable
+import io.reactivex.Observable
 
 class RxJavaSimpleDataSource {
 
-    fun getData() : Observable<Int>{
+    fun getData() : Observable<Int> {
         return Observable.create {
             SystemClock.sleep(1000)
             it.onNext(5)
